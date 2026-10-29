@@ -1,0 +1,144 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2382 >>
+stream
+BT
+/F1 18 Tf
+50 750 Td
+(Company Reorder Policy) Tj
+ET
+BT
+/F1 10 Tf
+50 715 Td
+(COMPANY REORDER POLICY DOCUMENT) Tj
+0 -16 Td
+50 699 Td
+(Effective Date: January 2025 | Version 2.1) Tj
+0 -16 Td
+50 683 Td
+() Tj
+0 -16 Td
+50 667 Td
+(SECTION 1: PURPOSE) Tj
+0 -16 Td
+50 651 Td
+(This document establishes standard procedures for inventory) Tj
+0 -16 Td
+50 635 Td
+(reordering across all departments and product categories.) Tj
+0 -16 Td
+50 619 Td
+() Tj
+0 -16 Td
+50 603 Td
+(SECTION 2: REORDER TRIGGERS) Tj
+0 -16 Td
+50 587 Td
+(2.1 Automatic reorder is triggered when stock falls to or below) Tj
+0 -16 Td
+50 571 Td
+(    the defined reorder point for each SKU.) Tj
+0 -16 Td
+50 555 Td
+(2.2 The default suggested quantity = max\(0, ceil\(2 x reorder level - current stock\)\)) Tj
+0 -16 Td
+50 539 Td
+(2.3 Critical items \(Category A\) should be reviewed daily.) Tj
+0 -16 Td
+50 523 Td
+(2.4 Standard items \(Category B\) should be reviewed weekly.) Tj
+0 -16 Td
+50 507 Td
+(2.5 Low-priority items \(Category C\) should be reviewed monthly.) Tj
+0 -16 Td
+50 491 Td
+() Tj
+0 -16 Td
+50 475 Td
+(SECTION 3: APPROVAL WORKFLOW) Tj
+0 -16 Td
+50 459 Td
+(3.1 Orders under $500: Department manager approval.) Tj
+0 -16 Td
+50 443 Td
+(3.2 Orders $500-$5000: Director approval required.) Tj
+0 -16 Td
+50 427 Td
+(3.3 Orders over $5000: VP approval and procurement review.) Tj
+0 -16 Td
+50 411 Td
+() Tj
+0 -16 Td
+50 395 Td
+(SECTION 4: SUPPLIER MANAGEMENT) Tj
+0 -16 Td
+50 379 Td
+(4.1 Maintain at least 2 approved suppliers per critical item.) Tj
+0 -16 Td
+50 363 Td
+(4.2 Supplier lead times must be updated quarterly.) Tj
+0 -16 Td
+50 347 Td
+(4.3 Quality audits conducted annually for all suppliers.) Tj
+0 -16 Td
+50 331 Td
+() Tj
+0 -16 Td
+50 315 Td
+(SECTION 5: EMERGENCY ORDERS) Tj
+0 -16 Td
+50 299 Td
+(5.1 Emergency orders may bypass standard approval for items) Tj
+0 -16 Td
+50 283 Td
+(    that are completely out of stock and rated critical.) Tj
+0 -16 Td
+50 267 Td
+(5.2 Emergency orders must be documented within 24 hours.) Tj
+0 -16 Td
+50 251 Td
+(5.3 Root cause analysis required for repeated emergency orders.) Tj
+0 -16 Td
+50 235 Td
+() Tj
+0 -16 Td
+50 219 Td
+(SECTION 6: REPORTING) Tj
+0 -16 Td
+50 203 Td
+(6.1 Weekly stock status reports to department managers.) Tj
+0 -16 Td
+50 187 Td
+(6.2 Monthly inventory valuation reports to finance.) Tj
+0 -16 Td
+50 171 Td
+(6.3 Quarterly ABC analysis review and reclassification.) Tj
+0 -16 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000002675 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2745
+%%EOF

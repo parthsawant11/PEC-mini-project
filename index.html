@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stockwise — Inventory & Data Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #059669;
+      --primary-light: #ecfdf5;
+      --primary-border: #a7f3d0;
+      --dark: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-500: #64748b;
+      --slate-400: #94a3b8;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --amber: #f59e0b;
+      --amber-bg: #fffbeb;
+      --amber-border: #fde68a;
+      --rose: #ef4444;
+      --rose-bg: #fef2f2;
+      --rose-border: #fecaca;
+      --blue: #3b82f6;
+      --blue-bg: #eff6ff;
+      --blue-border: #bfdbfe;
+      --purple: #8b5cf6;
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 18px;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.07);
+      --shadow-lg: 0 10px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.04);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: #f8fafc;
+      color: var(--slate-800);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Navigation */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--slate-200);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.5px;
+    }
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #10b981, #047857);
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+    }
+    .nav-status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid var(--primary-border);
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 24px 20px 36px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid var(--primary-border);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .hero h1 span {
+      background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--slate-600);
+    }
+
+    /* Workspace Layout Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.9fr) minmax(320px, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* Cards */
+    .card {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--slate-100);
+    }
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--slate-500);
+    }
+
+    /* Upload Area */
+    .drop-zone {
+      border: 2px dashed #cbd5e1;
+      border-radius: var(--radius);
+      padding: 32px 20px;
+      text-align: center;
+      background: var(--slate-50);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .drop-zone:hover, .drop-zone.dragover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .drop-icon {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .drop-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .drop-sub {
+      font-size: 12px;
+      color: var(--slate-500);
+      margin-top: 4px;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      border: 1px solid transparent;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+    }
+    .btn-secondary {
+      background: white;
+      color: var(--slate-700);
+      border-color: var(--slate-200);
+    }
+    .btn-secondary:hover {
+      background: var(--slate-50);
+      border-color: var(--slate-300);
+    }
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* CIRCULAR GRAPH / DONUT CHART CARD */
+    .chart-card {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+      display: none;
+    }
+    .chart-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+    .donut-container {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
+    }
+    .donut-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+    .donut-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+    }
+    .donut-center-val {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1;
+    }
+    .donut-center-lbl {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--slate-500);
+      margin-top: 4px;
+    }
+
+    /* Chart Legend & Stats */
+    .chart-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .legend-item:hover {
+      background: white;
+      border-color: var(--primary);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-sm);
+    }
+    .legend-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .legend-pct-bar {
+      height: 4px;
+      border-radius: 2px;
+      background: var(--slate-200);
+      margin-top: 4px;
+      overflow: hidden;
+      width: 100px;
+    }
+    .legend-pct-fill {
+      height: 100%;
+      border-radius: 2px;
+    }
+    .legend-stat {
+      text-align: right;
+    }
+    .legend-count {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .legend-pct {
+      font-size: 11px;
+      color: var(--slate-500);
+    }
+
+    /* Metrics Row */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .metric-card {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+    .metric-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--slate-500);
+    }
+    .metric-val {
+      font-size: 24px;
+      font-weight: 800;
+      margin-top: 4px;
+      color: var(--dark);
+    }
+    .metric-card.warn .metric-val { color: var(--amber); }
+    .metric-card.danger .metric-val { color: var(--rose); }
+
+    /* Column Mapping Selector Bar */
+    .mapping-bar {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+    .mapping-bar label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--slate-700);
+      font-weight: 600;
+    }
+    .mapping-bar select {
+      padding: 5px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--slate-300);
+      font-size: 12px;
+      font-weight: 600;
+      background: white;
+      outline: none;
+      color: var(--dark);
+    }
+    .mapping-bar select:focus {
+      border-color: var(--primary);
+    }
+
+    /* Table Toolbar */
+    .table-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .search-input {
+      flex: 1;
+      min-width: 220px;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--slate-200);
+      font-size: 13px;
+      outline: none;
+      background: var(--slate-50);
+    }
+    .search-input:focus {
+      border-color: var(--primary);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    }
+    .filter-pills {
+      display: flex;
+      gap: 6px;
+    }
+    .pill {
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--slate-100);
+      color: var(--slate-600);
+      border: 1px solid var(--slate-200);
+      cursor: pointer;
+    }
+    .pill.active {
+      background: var(--dark);
+      color: white;
+      border-color: var(--dark);
+    }
+
+    /* Table Container */
+    .table-wrap {
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      overflow: auto;
+      max-height: 480px;
+      background: white;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: left;
+      white-space: nowrap;
+    }
+    th {
+      background: var(--slate-50);
+      padding: 10px 14px;
+      font-weight: 700;
+      color: var(--slate-600);
+      border-bottom: 1px solid var(--slate-200);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--slate-100);
+      color: var(--slate-700);
+    }
+    tr:hover td {
+      background: #fafcfb;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-ok { background: var(--primary-light); color: var(--primary-dark); }
+    .badge-warn { background: var(--amber-bg); color: var(--amber); }
+    .badge-danger { background: var(--rose-bg); color: var(--rose); }
+    .badge-planned { background: var(--blue-bg); color: var(--blue); }
+    .badge-review { background: var(--slate-100); color: var(--slate-500); }
+
+    /* Assistant Card */
+    .agent-input-box {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .agent-input {
+      flex: 1;
+      padding: 12px 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--slate-200);
+      font-size: 13px;
+      outline: none;
+      background: var(--slate-50);
+    }
+    .agent-input:focus {
+      border-color: var(--primary);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    }
+    .chips-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .chip {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: 20px;
+      padding: 5px 11px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--slate-600);
+      cursor: pointer;
+      transition: all 0.1s;
+    }
+    .chip:hover {
+      border-color: var(--primary);
+      color: var(--primary-dark);
+      background: var(--primary-light);
+    }
+
+    .response-box {
+      background: #f8fafc;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-top: 14px;
+      display: none;
+    }
+    .response-box.show { display: block; }
+    .response-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .response-body { font-size: 12px; color: var(--slate-700); line-height: 1.6; }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 12px 20px;
+      background: var(--dark);
+      color: white;
+      border-radius: var(--radius);
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.25s ease;
+      z-index: 100;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .chart-layout { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <span class="brand-icon">📦</span>
+        Stockwise
+      </a>
+      <div class="nav-status">
+        <div class="status-badge" id="server-status">
+          <span class="status-dot"></span>
+          <span>Workspace Active</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Header -->
+    <section class="hero">
+      <div class="hero-tag">✨ Unified Inventory & Data Intelligence</div>
+      <h1>Universal Stock & Data <span>Workspace</span></h1>
+      <p>Upload any CSV file to automatically visualize health distributions with an interactive circular chart, analyze benchmarks, and prepare draft restock recommendations.</p>
+    </section>
+
+    <!-- Workspace Grid -->
+    <div class="grid">
+      
+      <!-- Left Column: Upload, Visualization & Table -->
+      <div class="left-col">
+        
+        <!-- Upload Card -->
+        <div class="card" id="upload-card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">Upload Dataset / Inventory CSV</h2>
+              <p class="card-desc">Drag & drop any CSV file or try a quick sample</p>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="btn-quick-sample">Load Quick Sample</button>
+          </div>
+          <div class="drop-zone" id="drop-zone">
+            <div class="drop-icon">📂</div>
+            <div class="drop-title">Drop your CSV file here</div>
+            <div class="drop-sub">Compatible with any CSV: retail inventory, student grades, sales stats, or sensor data</div>
+            <input type="file" id="file-input" accept=".csv" style="display:none">
+            <button class="btn btn-secondary btn-sm" style="margin-top:14px" onclick="document.getElementById('file-input').click()">Browse Files</button>
+          </div>
+        </div>
+
+        <!-- CIRCULAR GRAPH VISUALIZATION CARD -->
+        <div class="chart-card" id="chart-card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">📊 Dataset Health & Distribution</h2>
+              <p class="card-desc">Interactive circular visualization of the uploaded records</p>
+            </div>
+            <div style="display:flex; gap:6px">
+              <button class="pill active" id="view-status-btn">Status Breakdown</button>
+              <button class="pill" id="view-cat-btn">Category Breakdown</button>
+            </div>
+          </div>
+
+          <div class="chart-layout">
+            <!-- Circular Donut SVG -->
+            <div class="donut-container">
+              <svg class="donut-svg" viewBox="0 0 42 42" id="donut-svg">
+                <!-- Slices rendered dynamically -->
+              </svg>
+              <div class="donut-center">
+                <div class="donut-center-val" id="donut-val">0</div>
+                <div class="donut-center-lbl" id="donut-lbl">Records</div>
+              </div>
+            </div>
+
+            <!-- Legend & Distribution Bars -->
+            <div class="chart-legend" id="chart-legend">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Inventory Data Table Card -->
+        <div class="card" id="table-card" style="display:none">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title" id="table-title">Data Overview</h2>
+              <p class="card-desc" id="table-subtitle">Displaying active rows</p>
+            </div>
+            <div style="display:flex; gap:8px">
+              <button class="btn btn-secondary btn-sm" id="btn-export-inventory">Export CSV</button>
+              <button class="btn btn-primary btn-sm" id="btn-export-reorder">Export Restock Plan</button>
+            </div>
+          </div>
+
+          <!-- Column Roles Selector Bar -->
+          <div class="mapping-bar">
+            <span style="font-weight:700; color:var(--dark)">⚙️ Column Roles:</span>
+            <label>Entity: <select id="sel-item"></select></label>
+            <label>Value/Stock: <select id="sel-stock"></select></label>
+            <label>Benchmark/Target: <select id="sel-reorder"></select></label>
+            <button class="btn btn-secondary btn-sm" id="btn-apply-mapping">Update Roles</button>
+          </div>
+
+          <!-- Metrics Row -->
+          <div class="metrics">
+            <div class="metric-card">
+              <div class="metric-label">Total Records</div>
+              <div class="metric-val" id="metric-total">0</div>
+            </div>
+            <div class="metric-card warn">
+              <div class="metric-label">Below Threshold</div>
+              <div class="metric-val" id="metric-low">0</div>
+            </div>
+            <div class="metric-card danger">
+              <div class="metric-label">Zero / Critical</div>
+              <div class="metric-val" id="metric-out">0</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-label">Data Review</div>
+              <div class="metric-val" id="metric-review">0</div>
+            </div>
+          </div>
+
+          <!-- Table Toolbar -->
+          <div class="table-toolbar">
+            <input type="text" class="search-input" id="table-search" placeholder="Search by name, ID, or category...">
+            <div class="filter-pills">
+              <button class="pill active" data-filter="all">All</button>
+              <button class="pill" data-filter="low">Below Target</button>
+              <button class="pill" data-filter="out">Zero / Critical</button>
+              <button class="pill" data-filter="planned">Planned</button>
+              <button class="pill" data-filter="ok">Healthy</button>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="table-wrap">
+            <table id="inventory-table">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Bar Chart Visualization -->
+      <div class="right-col">
+        
+        <div class="card" id="barchart-card">
+          <div class="card-header">
+            <div>
+              <h2 class="card-title">📊 Stock Level Bar Chart</h2>
+              <p class="card-desc">Visual comparison: stock vs target</p>
+            </div>
+            <div style="display:flex; gap:4px">
+              <button class="pill active" id="bar-view-lowest">Lowest</button>
+              <button class="pill" id="bar-view-highest">Highest</button>
+            </div>
+          </div>
+
+          <!-- Bar Chart List Container -->
+          <div id="bar-chart-container" style="display:flex; flex-direction:column; gap:10px; margin-bottom:16px">
+            <p style="font-size:12px; color:var(--slate-400); font-style:italic">Upload a file to see bar chart comparison.</p>
+          </div>
+
+          <!-- Quick Actions & Export -->
+          <div style="border-top:1px solid var(--slate-100); padding-top:14px; margin-top:14px; display:flex; flex-direction:column; gap:8px">
+            <div style="display:flex; gap:8px">
+              <button class="btn btn-primary btn-sm" id="btn-export-reorder-side" style="flex:1">Export Restock Draft</button>
+              <button class="btn btn-secondary btn-sm" id="btn-export-inventory-side" style="flex:1">Export CSV</button>
+            </div>
+            <div style="display:flex; gap:8px">
+              <button class="btn btn-secondary btn-sm" id="btn-undo" disabled style="flex:1">↶ Undo</button>
+              <button class="btn btn-secondary btn-sm" id="btn-reset" disabled style="flex:1">Reset</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <div class="toast" id="toast">Message</div>
+
+  <script>
+    // State
+    let currentData = null;
+    let allRows = [];
+    let currentFilter = 'all';
+    let currentChartView = 'status'; // 'status' or 'category'
+
+    const $ = id => document.getElementById(id);
+
+    function showToast(msg) {
+      const t = $('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    async function api(path, options = {}) {
+      const res = await fetch(path, {
+        headers: { 'Content-Type': 'application/json' },
+        ...options
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Request failed');
+      return data;
+    }
+
+    // CIRCULAR DONUT CHART RENDERING
+    function renderCircularChart() {
+      if (!currentData || !currentData.report) return;
+      const r = currentData.report;
+      const total = r.total_items || 1;
+
+      $('chart-card').style.display = 'block';
+
+      let segments = [];
+      if (currentChartView === 'status') {
+        $('donut-val').textContent = r.total_items;
+        $('donut-lbl').textContent = 'Records';
+
+        segments = [
+          { label: 'Healthy / Above Target', count: r.healthy_count, color: '#10b981', filter: 'ok' },
+          { label: 'Below Target / Low', count: r.low_count - r.out_count, color: '#f59e0b', filter: 'low' },
+          { label: 'Zero / Critical', count: r.out_count, color: '#ef4444', filter: 'out' },
+          { label: 'Needs Data Review', count: r.review_count, color: '#94a3b8', filter: 'all' },
+        ].filter(s => s.count > 0);
+      } else {
+        // Category Distribution View
+        const catMap = r.category_distribution || {};
+        $('donut-val').textContent = Object.keys(catMap).length;
+        $('donut-lbl').textContent = 'Categories';
+
+        const palette = ['#10b981', '#3b82f6', '#f59e0b', '#8b5cf6', '#ec4899', '#06b6d4', '#64748b'];
+        let colorIdx = 0;
+        segments = Object.entries(catMap).map(([name, count]) => {
+          const color = palette[colorIdx % palette.length];
+          colorIdx++;
+          return { label: name, count, color, filter: 'all', search: name };
+        });
+      }
+
+      // Compute SVG Dasharrays for Circular Donut
+      const svg = $('donut-svg');
+      svg.innerHTML = `
+        <circle cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#f1f5f9" stroke-width="4.5"></circle>
+      `;
+
+      let cumulativePct = 0;
+      segments.forEach(seg => {
+        const pct = (seg.count / total) * 100;
+        const dashArray = `${pct} ${100 - pct}`;
+        const dashOffset = 100 - cumulativePct;
+        cumulativePct += pct;
+
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('cx', '21');
+        circle.setAttribute('cy', '21');
+        circle.setAttribute('r', '15.91549430918954');
+        circle.setAttribute('fill', 'transparent');
+        circle.setAttribute('stroke', seg.color);
+        circle.setAttribute('stroke-width', '4.8');
+        circle.setAttribute('stroke-dasharray', dashArray);
+        circle.setAttribute('stroke-dashoffset', String(dashOffset));
+        circle.style.cursor = 'pointer';
+        circle.style.transition = 'stroke-width 0.2s';
+        circle.addEventListener('mouseenter', () => circle.setAttribute('stroke-width', '6.2'));
+        circle.addEventListener('mouseleave', () => circle.setAttribute('stroke-width', '4.8'));
+        circle.addEventListener('click', () => {
+          if (seg.search) {
+            $('table-search').value = seg.search;
+            applyTableFilter();
+          } else if (seg.filter) {
+            setFilter(seg.filter);
+          }
+        });
+        svg.appendChild(circle);
+      });
+
+      // Render Legend List
+      const legend = $('chart-legend');
+      legend.innerHTML = segments.map(seg => {
+        const pct = ((seg.count / total) * 100).toFixed(1);
+        return `
+          <div class="legend-item" onclick="onLegendClick('${seg.filter}', '${seg.search || ''}')">
+            <div>
+              <div class="legend-info">
+                <span class="legend-dot" style="background:${seg.color}"></span>
+                <span>${seg.label}</span>
+              </div>
+              <div class="legend-pct-bar">
+                <div class="legend-pct-fill" style="width:${pct}%; background:${seg.color}"></div>
+              </div>
+            </div>
+            <div class="legend-stat">
+              <div class="legend-count">${seg.count}</div>
+              <div class="legend-pct">${pct}%</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function onLegendClick(filter, search) {
+      if (search) {
+        $('table-search').value = search;
+        applyTableFilter();
+      } else if (filter) {
+        setFilter(filter);
+      }
+    }
+
+    function setFilter(f) {
+      currentFilter = f;
+      document.querySelectorAll('.filter-pills .pill').forEach(p => {
+        p.classList.toggle('active', p.dataset.filter === f);
+      });
+      applyTableFilter();
+    }
+
+    $('view-status-btn').addEventListener('click', () => {
+      currentChartView = 'status';
+      $('view-status-btn').classList.add('active');
+      $('view-cat-btn').classList.remove('active');
+      renderCircularChart();
+    });
+
+    $('view-cat-btn').addEventListener('click', () => {
+      currentChartView = 'category';
+      $('view-cat-btn').classList.add('active');
+      $('view-status-btn').classList.remove('active');
+      renderCircularChart();
+    });
+
+    // Render Workspace
+    function renderWorkspace(data) {
+      currentData = data;
+      allRows = data.rows || [];
+
+      $('table-card').style.display = 'block';
+      $('table-title').textContent = data.name || 'Dataset Overview';
+      $('table-subtitle').textContent = `Showing ${allRows.length} of ${data.total_rows || allRows.length} items`;
+
+      // Metrics
+      const r = data.report;
+      $('metric-total').textContent = r.total_items;
+      $('metric-low').textContent = r.low_count;
+      $('metric-out').textContent = r.out_count;
+      $('metric-review').textContent = r.review_count;
+
+      // Column Roles Dropdowns
+      const f = data.fields || (r ? r.fields : {}) || {};
+      const cols = data.columns || [];
+      ['sel-item', 'sel-stock', 'sel-reorder'].forEach(id => {
+        const sel = $(id);
+        sel.innerHTML = cols.map(c => `<option value="${c}">${c}</option>`).join('');
+      });
+      if (f.item && cols.includes(f.item)) $('sel-item').value = f.item;
+      if (f.stock && cols.includes(f.stock)) $('sel-stock').value = f.stock;
+      if (f.reorder && cols.includes(f.reorder)) $('sel-reorder').value = f.reorder;
+
+      // Table Headers
+      const thead = $('inventory-table').querySelector('thead');
+      const htmlCols = [...cols, 'status'];
+      thead.innerHTML = `<tr>${htmlCols.map(c => `<th>${c.replace(/_/g, ' ').toUpperCase()}</th>`).join('')}</tr>`;
+
+      renderCircularChart();
+      renderBarChart(data);
+      applyTableFilter();
+
+      $('btn-undo').disabled = !data.can_undo;
+      $('btn-reset').disabled = false;
+    }
+
+    function applyTableFilter() {
+      if (!currentData) return;
+      const term = $('table-search').value.toLowerCase().trim();
+      const r = currentData.report;
+
+      const lowIndices = new Set((r.low_items || []).map(x => x.index));
+      const outIndices = new Set((r.low_items || []).filter(x => x.stock <= 0).map(x => x.index));
+      const reviewIndices = new Set((r.review_items || []).map(x => x.index));
+      const statusCol = currentData.columns.includes('reorder_status') ? 'reorder_status' : null;
+
+      const tbody = $('inventory-table').querySelector('tbody');
+      tbody.innerHTML = '';
+
+      allRows.forEach((row, i) => {
+        let label = 'Healthy';
+        let badgeClass = 'badge-ok';
+
+        if (statusCol && row[statusCol] === 'Planned') {
+          label = 'Planned';
+          badgeClass = 'badge-planned';
+        } else if (reviewIndices.has(i)) {
+          label = 'Needs Review';
+          badgeClass = 'badge-review';
+        } else if (outIndices.has(i)) {
+          label = 'Zero / Empty';
+          badgeClass = 'badge-danger';
+        } else if (lowIndices.has(i)) {
+          label = 'Below Target';
+          badgeClass = 'badge-warn';
+        }
+
+        if (currentFilter === 'low' && label !== 'Below Target' && label !== 'Zero / Empty') return;
+        if (currentFilter === 'out' && label !== 'Zero / Empty') return;
+        if (currentFilter === 'planned' && label !== 'Planned') return;
+        if (currentFilter === 'ok' && label !== 'Healthy') return;
+
+        if (term) {
+          const match = Object.values(row).some(v => String(v).toLowerCase().includes(term));
+          if (!match) return;
+        }
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = currentData.columns.map(c => `<td>${row[c] || '<span style="color:#cbd5e1">—</span>'}</td>`).join('') +
+          `<td><span class="badge ${badgeClass}">${label}</span></td>`;
+        tbody.appendChild(tr);
+      });
+    }
+
+    $('btn-apply-mapping').addEventListener('click', async () => {
+      const item = $('sel-item').value;
+      const stock = $('sel-stock').value;
+      const reorder = $('sel-reorder').value;
+      try {
+        const res = await api('/api/remap', {
+          method: 'POST',
+          body: JSON.stringify({ fields: { item, stock, reorder } })
+        });
+        renderWorkspace({ ...currentData, report: res.report, fields: res.fields });
+        showToast('Column roles updated and chart recalculated!');
+      } catch (err) {
+        showToast(`Error: ${err.message}`);
+      }
+    });
+
+    document.querySelectorAll('.filter-pills .pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        setFilter(pill.dataset.filter);
+      });
+    });
+
+    $('table-search').addEventListener('input', applyTableFilter);
+
+    // Upload & Drag-and-Drop
+    const dropZone = $('drop-zone');
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+    dropZone.addEventListener('drop', async e => {
+      e.preventDefault();
+      dropZone.classList.remove('dragover');
+      const file = e.dataTransfer.files[0];
+      if (file && file.name.endsWith('.csv')) uploadCSV(file);
+    });
+
+    $('file-input').addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (file) uploadCSV(file);
+    });
+
+    async function uploadCSV(file) {
+      try {
+        const text = await file.text();
+        const res = await api('/api/upload', {
+          method: 'POST',
+          body: JSON.stringify({ name: file.name, text })
+        });
+        renderWorkspace(res);
+        showToast(`Loaded ${file.name} successfully!`);
+      } catch (err) {
+        showToast(`Error: ${err.message}`);
+      }
+    }
+
+    // Quick Sample
+    const fallbackSample = `sku,item,category,stock,reorder_level,unit_price
+E001,Wireless Mouse,Peripherals,12,15,24.99
+E002,Mechanical Keyboard,Peripherals,5,10,79.99
+E003,USB-C Hub,Accessories,0,8,34.99
+E004,27-inch Monitor,Displays,18,6,299.99
+E005,Webcam HD 1080p,Peripherals,3,12,49.99
+E006,Laptop Stand,Accessories,22,10,39.99
+E007,Noise Cancelling Headphones,Audio,7,10,149.99
+E008,Bluetooth Speaker,Audio,0,5,29.99
+E009,External SSD 1TB,Storage,14,8,89.99
+E010,USB Flash Drive 64GB,Storage,45,20,12.99
+E011,HDMI Cable 6ft,Cables,60,25,8.99
+E012,DisplayPort Cable,Cables,9,15,14.99
+E013,Wireless Charger,Accessories,4,10,19.99
+E014,Power Strip 6-Outlet,Power,31,12,16.99
+E015,Surge Protector,Power,8,10,24.99
+E016,Gaming Mouse Pad XL,Peripherals,20,8,15.99
+E017,Ethernet Cable Cat6 10ft,Cables,55,30,6.99
+E018,Portable Monitor 15.6in,Displays,2,5,199.99
+E019,Desk Microphone,Audio,11,7,69.99
+E020,Smart Plug 4-Pack,Power,0,6,29.99`;
+
+    $('btn-quick-sample').addEventListener('click', async () => {
+      try {
+        const res = await api('/api/upload', {
+          method: 'POST',
+          body: JSON.stringify({ name: 'electronics_inventory.csv', text: fallbackSample })
+        });
+        renderWorkspace(res);
+        showToast('Loaded sample inventory successfully!');
+      } catch (err) {
+        showToast(`Error: ${err.message}`);
+      }
+    });
+
+    let barViewMode = 'lowest';
+
+    function renderBarChart(data) {
+      if (!data || !data.report) return;
+      const r = data.report;
+      const container = $('bar-chart-container');
+
+      const stockCol = (data.fields && data.fields.stock) || (r && r.stock_column) || (r && r.fields && r.fields.stock) || 'stock';
+      const reorderCol = (data.fields && data.fields.reorder) || (r && r.reorder_column) || (r && r.fields && r.fields.reorder) || 'reorder_level';
+      const itemCol = (data.fields && data.fields.item) || (r && r.item_column) || (r && r.fields && r.fields.item) || 'item';
+
+      const itemsList = allRows.map((row, idx) => {
+        const stock = parseFloat(String(row[stockCol] || 0).replace(/[^\d.-]/g, '')) || 0;
+        const reorder = parseFloat(String(row[reorderCol] || 0).replace(/[^\d.-]/g, '')) || 0;
+        return {
+          index: idx,
+          name: String(row[itemCol] || `Item ${idx+1}`),
+          stock,
+          reorder,
+          ratio: reorder > 0 ? (stock / reorder) : (stock > 0 ? 2 : 0)
+        };
+      });
+
+      if (barViewMode === 'lowest') {
+        itemsList.sort((a, b) => a.ratio - b.ratio || a.stock - b.stock);
+      } else {
+        itemsList.sort((a, b) => b.stock - a.stock);
+      }
+
+      const topItems = itemsList.slice(0, 8);
+      if (topItems.length === 0) {
+        container.innerHTML = '<p style="font-size:12px; color:var(--slate-400)">No data available for bar chart.</p>';
+        return;
+      }
+
+      const maxVal = Math.max(1, ...topItems.map(x => Math.max(x.stock, x.reorder * 1.2)));
+
+      container.innerHTML = topItems.map(item => {
+        const stockPct = Math.min(100, Math.max(3, (item.stock / maxVal) * 100));
+        let barColor = '#10b981';
+        let statusText = 'Healthy';
+        if (item.stock <= 0) {
+          barColor = '#ef4444';
+          statusText = 'Zero';
+        } else if (item.stock <= item.reorder) {
+          barColor = '#f59e0b';
+          statusText = 'Low';
+        }
+
+        return `
+          <div class="bar-chart-row" onclick="filterByItem('${item.name.replace(/'/g, "\\'")}')" style="cursor:pointer; padding:8px 10px; border-radius:8px; border:1px solid var(--slate-200); background:white; transition:all 0.15s ease">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:5px">
+              <span style="font-size:12px; font-weight:700; color:var(--dark); max-width:160px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap">${item.name}</span>
+              <span style="font-size:11px; font-weight:700; color:${barColor}">${item.stock} <span style="font-size:10px; font-weight:500; color:var(--slate-400)">/ ${item.reorder} target</span></span>
+            </div>
+            
+            <div style="position:relative; height:10px; background:var(--slate-100); border-radius:5px; overflow:hidden">
+              <div style="height:100%; width:${stockPct}%; background:${barColor}; border-radius:5px; transition:width 0.4s ease"></div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--slate-400); margin-top:3px">
+              <span style="color:${barColor}; font-weight:600">${statusText}</span>
+              <span>Need: ${item.stock <= item.reorder ? '+' + Math.ceil(Math.max(0, item.reorder * 2 - item.stock)) : '0'}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterByItem(itemName) {
+      $('table-search').value = itemName;
+      applyTableFilter();
+      showToast(`Filtered to: ${itemName}`);
+    }
+
+    $('bar-view-lowest').addEventListener('click', () => {
+      barViewMode = 'lowest';
+      $('bar-view-lowest').classList.add('active');
+      $('bar-view-highest').classList.remove('active');
+      renderBarChart(currentData);
+    });
+
+    $('bar-view-highest').addEventListener('click', () => {
+      barViewMode = 'highest';
+      $('bar-view-highest').classList.add('active');
+      $('bar-view-lowest').classList.remove('active');
+      renderBarChart(currentData);
+    });
+
+    $('btn-export-reorder-side').addEventListener('click', () => { location.href = '/api/export/reorder.csv'; });
+    $('btn-export-inventory-side').addEventListener('click', () => { location.href = '/api/export/inventory.csv'; });
+
+    $('btn-undo').addEventListener('click', async () => {
+      try {
+        const res = await api('/api/undo', { method: 'POST', body: JSON.stringify({}) });
+        renderWorkspace(res);
+        showToast('Undone last action');
+      } catch (err) { showToast(err.message); }
+    });
+
+    $('btn-reset').addEventListener('click', async () => {
+      try {
+        const res = await api('/api/reset', { method: 'POST', body: JSON.stringify({}) });
+        renderWorkspace(res);
+        showToast('Original upload restored');
+      } catch (err) { showToast(err.message); }
+    });
+
+    $('btn-export-inventory').addEventListener('click', () => { location.href = '/api/export/inventory.csv'; });
+    $('btn-export-reorder').addEventListener('click', () => { location.href = '/api/export/reorder.csv'; });
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+code,name,type,stock,reorder_level,price
+BK001,Introduction to Python,Textbook,5,8,42.99
+BK002,College Ruled Notebook 5-Pack,Stationery,12,25,9.99
+BK003,Scientific Calculator,Equipment,0,10,18.99
+BK004,Graphing Calculator,Equipment,3,5,89.99
+BK005,Ballpoint Pens Blue (12),Stationery,50,20,4.99
+BK006,Highlighters Assorted (6),Stationery,18,15,5.49
+BK007,3-Ring Binder 1.5in,Stationery,8,20,3.99
+BK008,Loose Leaf Paper 500 Sheets,Stationery,25,30,6.99
+BK009,Data Structures Textbook,Textbook,2,5,54.99
+BK010,Lab Safety Goggles,Equipment,14,10,7.99
+BK011,Whiteboard Markers (8),Stationery,6,12,6.49
+BK012,USB Flash Drive 32GB,Technology,20,10,8.99
+BK013,Laptop Backpack,Accessories,9,8,34.99
+BK014,Desk Organizer,Accessories,0,6,14.99
+BK015,Index Cards 100-Pack,Stationery,33,15,2.49
+BK016,Organic Chemistry Textbook,Textbook,4,6,67.99
+BK017,A4 Printer Paper Ream,Stationery,10,20,5.99
+BK018,Stapler with Staples,Stationery,15,8,4.99
+BK019,Physics Lab Manual,Textbook,7,10,22.99
+BK020,Correction Tape (3-Pack),Stationery,28,10,3.99

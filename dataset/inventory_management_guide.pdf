@@ -1,0 +1,162 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2745 >>
+stream
+BT
+/F1 18 Tf
+50 750 Td
+(Inventory Management Best Practices) Tj
+ET
+BT
+/F1 10 Tf
+50 715 Td
+(Inventory Management Best Practices Guide) Tj
+0 -16 Td
+50 699 Td
+() Tj
+0 -16 Td
+50 683 Td
+(1. UNDERSTANDING REORDER POINTS) Tj
+0 -16 Td
+50 667 Td
+(   The reorder point is the inventory level at which a new order) Tj
+0 -16 Td
+50 651 Td
+(   should be placed to replenish stock before it runs out.) Tj
+0 -16 Td
+50 635 Td
+(   Formula: Reorder Point = \(Average Daily Usage x Lead Time\) + Safety Stock) Tj
+0 -16 Td
+50 619 Td
+() Tj
+0 -16 Td
+50 603 Td
+(2. SAFETY STOCK CALCULATION) Tj
+0 -16 Td
+50 587 Td
+(   Safety stock acts as a buffer against unexpected demand spikes) Tj
+0 -16 Td
+50 571 Td
+(   or supply delays.) Tj
+0 -16 Td
+50 555 Td
+(   Formula: Safety Stock = \(Max Daily Usage - Avg Daily Usage\) x Max Lead Time) Tj
+0 -16 Td
+50 539 Td
+() Tj
+0 -16 Td
+50 523 Td
+(3. ECONOMIC ORDER QUANTITY \(EOQ\)) Tj
+0 -16 Td
+50 507 Td
+(   EOQ minimizes total inventory costs \(ordering + holding\).) Tj
+0 -16 Td
+50 491 Td
+(   Formula: EOQ = sqrt\(\(2 x Demand x Ordering Cost\) / Holding Cost\)) Tj
+0 -16 Td
+50 475 Td
+() Tj
+0 -16 Td
+50 459 Td
+(4. ABC ANALYSIS) Tj
+0 -16 Td
+50 443 Td
+(   Categorize inventory items by value:) Tj
+0 -16 Td
+50 427 Td
+(   A Items: Top 20% of items representing 80% of total value) Tj
+0 -16 Td
+50 411 Td
+(   B Items: Next 30% of items representing 15% of total value) Tj
+0 -16 Td
+50 395 Td
+(   C Items: Bottom 50% of items representing 5% of total value) Tj
+0 -16 Td
+50 379 Td
+() Tj
+0 -16 Td
+50 363 Td
+(5. KEY PERFORMANCE INDICATORS \(KPIs\)) Tj
+0 -16 Td
+50 347 Td
+(   - Inventory Turnover Ratio = Cost of Goods Sold / Average Inventory) Tj
+0 -16 Td
+50 331 Td
+(   - Days Sales of Inventory = 365 / Inventory Turnover Ratio) Tj
+0 -16 Td
+50 315 Td
+(   - Stockout Rate = Number of Stockouts / Total Orders) Tj
+0 -16 Td
+50 299 Td
+(   - Fill Rate = Orders Filled Completely / Total Orders) Tj
+0 -16 Td
+50 283 Td
+(   - Carrying Cost = \(Holding Cost / Total Inventory Value\) x 100) Tj
+0 -16 Td
+50 267 Td
+() Tj
+0 -16 Td
+50 251 Td
+(6. JUST-IN-TIME \(JIT\) PRINCIPLES) Tj
+0 -16 Td
+50 235 Td
+(   - Minimize inventory holding costs) Tj
+0 -16 Td
+50 219 Td
+(   - Order only what is needed, when it is needed) Tj
+0 -16 Td
+50 203 Td
+(   - Build strong supplier relationships) Tj
+0 -16 Td
+50 187 Td
+(   - Reduce lead times through better communication) Tj
+0 -16 Td
+50 171 Td
+() Tj
+0 -16 Td
+50 155 Td
+(7. COMMON INVENTORY MISTAKES) Tj
+0 -16 Td
+50 139 Td
+(   - Not tracking inventory regularly) Tj
+0 -16 Td
+50 123 Td
+(   - Ignoring lead time variability) Tj
+0 -16 Td
+50 107 Td
+(   - Overstocking slow-moving items) Tj
+0 -16 Td
+50 91 Td
+(   - Not accounting for seasonal demand changes) Tj
+0 -16 Td
+50 75 Td
+(   - Poor warehouse organization) Tj
+0 -16 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000003038 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+3108
+%%EOF

@@ -1,0 +1,31 @@
+product_id,product_name,department,quantity,minimum_stock,cost
+G001,Organic Milk 1L,Dairy,24,30,3.49
+G002,Free Range Eggs (12),Dairy,18,25,4.99
+G003,Whole Wheat Bread,Bakery,15,20,2.99
+G004,Chicken Breast 500g,Meat,0,15,7.49
+G005,Basmati Rice 5kg,Grains,40,12,8.99
+G006,Olive Oil Extra Virgin 1L,Oils,10,10,11.99
+G007,Fresh Tomatoes 1kg,Produce,8,20,3.29
+G008,Bananas 1kg,Produce,35,25,1.49
+G009,Greek Yogurt 500g,Dairy,6,15,4.49
+G010,Orange Juice 1L,Beverages,12,18,3.99
+G011,Instant Coffee 200g,Beverages,22,10,6.99
+G012,Pasta Penne 500g,Grains,45,15,1.79
+G013,Canned Tuna,Canned Goods,30,20,2.49
+G014,Peanut Butter 340g,Spreads,9,12,4.29
+G015,Frozen Mixed Vegetables 1kg,Frozen,0,10,3.99
+G016,Butter Unsalted 250g,Dairy,14,15,3.79
+G017,Toilet Paper 12-Pack,Household,5,20,8.99
+G018,Dish Soap 750ml,Household,25,10,2.99
+G019,Laundry Detergent 2L,Household,7,12,9.49
+G020,Paper Towels 6-Pack,Household,3,15,6.49
+G021,Cheddar Cheese 250g,Dairy,11,12,4.99
+G022,Fresh Salmon 300g,Seafood,4,8,9.99
+G023,Avocado (each),Produce,0,10,1.99
+G024,Almond Milk 1L,Beverages,16,10,3.79
+G025,Dark Chocolate 100g,Snacks,28,10,2.99
+G026,Honey 500g,Spreads,13,8,7.49
+G027,Frozen Pizza,Frozen,9,12,5.99
+G028,Mineral Water 6-Pack,Beverages,20,25,4.49
+G029,Baby Spinach 200g,Produce,2,10,3.49
+G030,Sourdough Bread,Bakery,6,10,4.49

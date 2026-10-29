@@ -1,0 +1,21 @@
+sku,product,group,current_stock,min_stock,unit_price
+WH001,Steel Bolts M10 (100),Fasteners,500,200,12.99
+WH002,Copper Wire 14AWG (100m),Electrical,30,50,45.99
+WH003,PVC Pipe 2in (10ft),Plumbing,75,40,8.49
+WH004,Concrete Mix 50lb Bag,Building,0,20,6.99
+WH005,Safety Helmets Yellow,PPE,15,25,14.99
+WH006,Work Gloves Leather (Pair),PPE,40,30,9.99
+WH007,LED Flood Light 50W,Lighting,8,12,24.99
+WH008,Paint Roller Set,Tools,22,10,7.49
+WH009,Wood Screws #8 (200),Fasteners,350,150,5.99
+WH010,Electrical Tape (10 Pack),Electrical,60,25,8.99
+WH011,Cement Board 4x8,Building,5,15,18.99
+WH012,Drill Bit Set (29pc),Tools,12,8,29.99
+WH013,Insulation Roll R-13,Building,0,10,34.99
+WH014,Cable Ties 12in (100),Electrical,200,50,3.99
+WH015,Sandpaper Assorted (20),Tools,18,10,6.49
+WH016,Pipe Fittings Assorted,Plumbing,25,20,15.99
+WH017,Duct Tape Silver 60yd,General,45,20,4.99
+WH018,Safety Vest Hi-Vis,PPE,10,15,8.99
+WH019,Measuring Tape 25ft,Tools,14,10,11.99
+WH020,Caulking Gun,Tools,6,8,7.99

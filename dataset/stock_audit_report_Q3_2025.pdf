@@ -1,0 +1,144 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2222 >>
+stream
+BT
+/F1 18 Tf
+50 750 Td
+(Quarterly Stock Audit Report) Tj
+ET
+BT
+/F1 10 Tf
+50 715 Td
+(QUARTERLY STOCK AUDIT REPORT) Tj
+0 -16 Td
+50 699 Td
+(Period: Q3 2025 \(July - September\)) Tj
+0 -16 Td
+50 683 Td
+(Prepared by: Inventory Control Department) Tj
+0 -16 Td
+50 667 Td
+() Tj
+0 -16 Td
+50 651 Td
+(EXECUTIVE SUMMARY) Tj
+0 -16 Td
+50 635 Td
+(This report presents findings from the Q3 2025 physical) Tj
+0 -16 Td
+50 619 Td
+(inventory count and reconciliation with system records.) Tj
+0 -16 Td
+50 603 Td
+() Tj
+0 -16 Td
+50 587 Td
+(KEY FINDINGS:) Tj
+0 -16 Td
+50 571 Td
+(  Total SKUs Audited: 1,247) Tj
+0 -16 Td
+50 555 Td
+(  Discrepancies Found: 83 \(6.7%\)) Tj
+0 -16 Td
+50 539 Td
+(  Value of Discrepancies: $4,312.50) Tj
+0 -16 Td
+50 523 Td
+(  Shrinkage Rate: 1.2% \(Target: under 2%\)) Tj
+0 -16 Td
+50 507 Td
+() Tj
+0 -16 Td
+50 491 Td
+(CATEGORY BREAKDOWN:) Tj
+0 -16 Td
+50 475 Td
+(  Electronics:  342 SKUs | 12 discrepancies | 98.2% accuracy) Tj
+0 -16 Td
+50 459 Td
+(  Grocery:      456 SKUs | 38 discrepancies | 91.7% accuracy) Tj
+0 -16 Td
+50 443 Td
+(  Pharmacy:     198 SKUs |  5 discrepancies | 97.5% accuracy) Tj
+0 -16 Td
+50 427 Td
+(  Stationery:   251 SKUs | 28 discrepancies | 88.8% accuracy) Tj
+0 -16 Td
+50 411 Td
+() Tj
+0 -16 Td
+50 395 Td
+(TOP DISCREPANCIES:) Tj
+0 -16 Td
+50 379 Td
+(  1. Wireless Mouse \(E001\): System=50, Actual=42 | Diff: -8) Tj
+0 -16 Td
+50 363 Td
+(  2. Notebook 5-Pack \(BK002\): System=35, Actual=12 | Diff: -23) Tj
+0 -16 Td
+50 347 Td
+(  3. Hand Sanitizer \(PH005\): System=8, Actual=0 | Diff: -8) Tj
+0 -16 Td
+50 331 Td
+(  4. Fresh Tomatoes \(G007\): System=15, Actual=8 | Diff: -7) Tj
+0 -16 Td
+50 315 Td
+(  5. Safety Helmets \(WH005\): System=22, Actual=15 | Diff: -7) Tj
+0 -16 Td
+50 299 Td
+() Tj
+0 -16 Td
+50 283 Td
+(RECOMMENDATIONS:) Tj
+0 -16 Td
+50 267 Td
+(  1. Increase count frequency for stationery items) Tj
+0 -16 Td
+50 251 Td
+(  2. Install security cameras in high-shrinkage zones) Tj
+0 -16 Td
+50 235 Td
+(  3. Implement barcode scanning for grocery receiving) Tj
+0 -16 Td
+50 219 Td
+(  4. Retrain staff on proper check-in procedures) Tj
+0 -16 Td
+50 203 Td
+(  5. Review perishable item handling protocols) Tj
+0 -16 Td
+50 187 Td
+() Tj
+0 -16 Td
+50 171 Td
+(NEXT AUDIT: Scheduled for January 2026) Tj
+0 -16 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000241 00000 n 
+0000002515 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+2585
+%%EOF

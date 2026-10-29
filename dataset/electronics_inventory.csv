@@ -1,0 +1,26 @@
+sku,item,category,stock,reorder_level,unit_price
+E001,Wireless Mouse,Peripherals,12,15,24.99
+E002,Mechanical Keyboard,Peripherals,5,10,79.99
+E003,USB-C Hub,Accessories,0,8,34.99
+E004,27-inch Monitor,Displays,18,6,299.99
+E005,Webcam HD 1080p,Peripherals,3,12,49.99
+E006,Laptop Stand,Accessories,22,10,39.99
+E007,Noise Cancelling Headphones,Audio,7,10,149.99
+E008,Bluetooth Speaker,Audio,0,5,29.99
+E009,External SSD 1TB,Storage,14,8,89.99
+E010,USB Flash Drive 64GB,Storage,45,20,12.99
+E011,HDMI Cable 6ft,Cables,60,25,8.99
+E012,DisplayPort Cable,Cables,9,15,14.99
+E013,Wireless Charger,Accessories,4,10,19.99
+E014,Power Strip 6-Outlet,Power,31,12,16.99
+E015,Surge Protector,Power,8,10,24.99
+E016,Gaming Mouse Pad XL,Peripherals,20,8,15.99
+E017,Ethernet Cable Cat6 10ft,Cables,55,30,6.99
+E018,Portable Monitor 15.6in,Displays,2,5,199.99
+E019,Desk Microphone,Audio,11,7,69.99
+E020,Smart Plug 4-Pack,Power,0,6,29.99
+E021,Laptop Sleeve 14in,Accessories,17,10,22.99
+E022,Wireless Earbuds,Audio,6,12,59.99
+E023,SD Card 128GB,Storage,28,15,18.99
+E024,Monitor Arm Mount,Displays,9,5,44.99
+E025,Cable Management Kit,Accessories,35,12,11.99

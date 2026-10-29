@@ -1,0 +1,21 @@
+item_id,item_name,category,on_hand,reorder_point,unit_cost
+PH001,Paracetamol 500mg (100 tabs),Pain Relief,120,50,4.99
+PH002,Ibuprofen 200mg (50 tabs),Pain Relief,8,30,5.49
+PH003,Vitamin C 1000mg (60 caps),Vitamins,45,25,8.99
+PH004,Bandage Rolls (12 pack),First Aid,15,20,6.99
+PH005,Hand Sanitizer 500ml,Hygiene,0,15,3.99
+PH006,Antiseptic Cream 30g,First Aid,22,10,4.49
+PH007,Digital Thermometer,Devices,7,10,12.99
+PH008,Blood Pressure Monitor,Devices,3,5,39.99
+PH009,Multivitamin Daily (90 tabs),Vitamins,18,20,14.99
+PH010,Allergy Relief (30 tabs),Allergy,5,15,7.99
+PH011,Cough Syrup 200ml,Cold & Flu,25,15,6.49
+PH012,Disposable Face Masks (50),PPE,10,30,9.99
+PH013,Latex Gloves Medium (100),PPE,0,20,11.99
+PH014,Eye Drops 15ml,Eye Care,12,10,5.99
+PH015,Sunscreen SPF 50 100ml,Skin Care,30,12,10.99
+PH016,Lip Balm SPF 15,Skin Care,40,15,2.49
+PH017,Omega-3 Fish Oil (60 caps),Vitamins,6,12,13.99
+PH018,Zinc Tablets (30),Vitamins,0,10,4.99
+PH019,First Aid Kit Complete,First Aid,4,8,24.99
+PH020,Cotton Swabs (200 pack),Hygiene,55,20,2.99
